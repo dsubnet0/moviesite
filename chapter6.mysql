@@ -1,0 +1,44 @@
+CREATE TABLE `movie` (
+`movie_id` int(11) NOT NULL auto_increment,
+`movie_name` varchar(255) NOT NULL default '',
+`movie_type` tinyint(2) NOT NULL default '0',
+`movie_year` int(4) NOT NULL default '0',
+`movie_leadactor` int(11) NOT NULL default '0',
+`movie_director` int(11) NOT NULL default '0',
+PRIMARY KEY (`movie_id`),
+KEY `movie_type` (`movie_type`,`movie_year`)
+) TYPE=MyISAM PACK_KEYS=0 AUTO_INCREMENT=4 ;
+
+INSERT INTO `movie` VALUES (1, 'Bruce Almighty', 5, 2003, 1, 2);
+INSERT INTO `movie` VALUES (3, 'Grand Canyon', 2, 1991, 4, 3);
+INSERT INTO `movie` VALUES (2, 'Office Space', 5, 1999, 5, 6);
+
+CREATE TABLE `movietype` (
+`movietype_id` int(11) NOT NULL auto_increment,
+`movietype_label` varchar(100) NOT NULL default '',
+PRIMARY KEY (`movietype_id`)
+) TYPE=MyISAM AUTO_INCREMENT=9 ;
+
+INSERT INTO `movietype` VALUES (1, 'Sci-Fi');
+INSERT INTO `movietype` VALUES (2, 'Drama');
+INSERT INTO `movietype` VALUES (3, 'Adventure');
+INSERT INTO `movietype` VALUES (4, 'War');
+INSERT INTO `movietype` VALUES (5, 'Comedy');
+INSERT INTO `movietype` VALUES (6, 'Horror');
+INSERT INTO `movietype` VALUES (7, 'Action');
+INSERT INTO `movietype` VALUES (8, 'Kids');
+
+CREATE TABLE `people` (
+`people_id` int(11) NOT NULL auto_increment,
+`people_fullname` varchar(255) NOT NULL default '',
+`people_isactor` tinyint(1) NOT NULL default '0',
+`people_isdirector` tinyint(1) NOT NULL default '0',
+PRIMARY KEY (`people_id`)
+) TYPE=MyISAM PACK_KEYS=0 AUTO_INCREMENT=7 ;
+
+INSERT INTO `people` VALUES (1, 'Jim Carrey', 1, 0);
+INSERT INTO `people` VALUES (2, 'Tom Shadyac', 0, 1);
+INSERT INTO `people` VALUES (3, 'Lawrence Kasdan', 0, 0);
+INSERT INTO `people` VALUES (4, 'Kevin Kline', 1, 0);
+INSERT INTO `people` VALUES (5, 'Ron Livingston', 0, 0);
+INSERT INTO `people` VALUES (6, 'Mike Judge', 0, 0);
